@@ -80,7 +80,7 @@
                         <div class="card-footer text-center py-3 bg-light">
                             <p class="mb-0">
                                 ¿No tienes cuenta?
-                                <a href="{{ route('register') }}" class="text-decoration-none">
+                                <a href="{{ route('guest.register') }}" class="text-decoration-none">
                                     <i class="bi bi-person-plus"></i> Registrarse
                                 </a>
                             </p>

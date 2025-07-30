@@ -11,11 +11,11 @@ Route::get('/', function () {
 
 // Rutas de autenticación
 Route::middleware('guest')->group(function () {
-    Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register');
-    Route::post('/register', [AuthController::class, 'register']);
+    Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('guest.registerform');
+    Route::post('/register', [AuthController::class, 'register'])->name('guest.register');
 
-    Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
-    Route::post('/login', [AuthController::class, 'login']);
+    Route::get('/login', [AuthController::class, 'showLoginForm'])->name('guest.loginForm');
+    Route::post('/login', [AuthController::class, 'login'])->name('login');
 });
 
 // Rutas protegidas
