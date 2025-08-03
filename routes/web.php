@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\GuildController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -18,11 +19,17 @@ Route::middleware('guest')->group(function () {
     Route::post('/login', [AuthController::class, 'login'])->name('login');
 });
 
+Route::prefix('guild')->group(function () {
+    Route::get('/create', [GuildController::class, 'create'])->name('guild.create');
+});
+
 // Rutas protegidas
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+
+
 
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });

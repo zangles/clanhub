@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
+use App\Domains\Guild\Repositories\GuildRepository;
+use App\Domains\Guild\Repositories\GuildRepositoryInterface;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\URL;
@@ -17,7 +19,7 @@ final class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        $this->app->bind(GuildRepositoryInterface::class, GuildRepository::class);
     }
 
     /**
