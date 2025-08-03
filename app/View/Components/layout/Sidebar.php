@@ -23,7 +23,7 @@ final class Sidebar extends Component
      */
     public function render(): View|Closure|string
     {
-        /** @var $menu<int, MenuItemDTO> */
+        /** @var MenuItemDTO[] $menu<int, MenuItemDTO> */
         $menu = [
             MenuItemDTO::make(
                 title: 'Dashboard',
@@ -42,10 +42,11 @@ final class Sidebar extends Component
             ),
         ];
 
+        /** @var AlertDTO[] $sideBarAlerts<int, AlertDTO> */
         $sideBarAlerts = [
             AlertDTO::make(
                 title: 'Test1',
-                footerText: 'lorem impsum',
+                footerText: 'lorem imps um',
                 percentage: 50.9,
                 progressBarClass: 'bg-danger'
             ),

@@ -8,7 +8,7 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-final class Header extends Component
+final class navbar extends Component
 {
     /**
      * Create a new component instance.
@@ -23,6 +23,6 @@ final class Header extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.layout.header');
+        return view('components.layout.navbar');
     }
 }

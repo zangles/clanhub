@@ -4,6 +4,7 @@
 
 <body>
 <div class="app-layout">
+    <x-layout.navbar />
     <x-layout.sidebar />
 
     <div class="content-wrap">

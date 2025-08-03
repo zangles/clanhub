@@ -11,9 +11,6 @@ use Illuminate\View\Component;
 
 final class Alert extends Component
 {
-    /**
-     * @param  AlertDTO  $dto
-     */
     public function __construct(
         private readonly AlertDTO $dto) {}
 

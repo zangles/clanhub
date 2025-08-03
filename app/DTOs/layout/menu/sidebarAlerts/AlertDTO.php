@@ -12,12 +12,6 @@ namespace App\DTOs\layout\menu\sidebarAlerts;
  */
 final class AlertDTO
 {
-    /**
-     * @param  string  $title
-     * @param  string  $footerText
-     * @param  float  $percentage
-     * @param  string  $progressBarClass
-     */
     public function __construct(
         public readonly string $title,
         public readonly string $footerText = '',
