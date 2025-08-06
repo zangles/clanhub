@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Http\Controllers;
 
 use App\Domains\Guild\Services\GuildService;
+use App\DTOs\dashboard\Elements\CardDTO;
 use App\Http\Requests\Guild\CreateGuildRequest;
 use App\Http\Requests\Guild\UpdateGuildRequest;
 use Exception;
@@ -20,7 +21,7 @@ final class GuildController
 
     public function index(Request $request): View
     {
-        $search = $request->get('search');
+        $search = $request->string('search')->toString();
         $game = $request->get('game');
 
         if ($search) {
@@ -45,18 +46,16 @@ final class GuildController
 
     public function create(): View
     {
-        $games = [
-            'world-of-warcraft' => 'World of Warcraft',
-            'final-fantasy-xiv' => 'Final Fantasy XIV',
-            'guild-wars-2' => 'Guild Wars 2',
-            'lost-ark' => 'Lost Ark',
-            'new-world' => 'New World',
-            'elder-scrolls-online' => 'The Elder Scrolls Online',
-            'destiny-2' => 'Destiny 2',
-            'diablo-4' => 'Diablo IV',
-        ];
+        $cardDto = CardDTO::make(
+            title: [
+                'title' => 'Crear gremio',
+                'class' => 'text-white',
+            ]
+        );
 
-        return view('layouts.base', compact('games'));
+        return view('guilds.create', [
+            'cardDto' => $cardDto,
+        ]);
     }
 
     public function store(CreateGuildRequest $request): RedirectResponse

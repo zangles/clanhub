@@ -1,0 +1,140 @@
+/* SOLUCIÓN PARA DATEPICKER CON FONDO BLANCO Y TEXTO BLANCO */
+
+/* Fix para el dropdown del datepicker */
+.bootstrap-datetimepicker-widget.dropdown-menu {
+    background-color: #313563 !important;
+    border: 1px solid #191c3f !important;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1) !important;
+}
+
+/* Fix para el hover de los días */
+.bootstrap-datetimepicker-widget .datepicker-days td.day:hover,
+.bootstrap-datetimepicker-widget .datepicker-days td.hour:hover,
+.bootstrap-datetimepicker-widget .datepicker-days td.minute:hover {
+    background-color: #1a1d40 !important;
+    color: #fff !important;
+    cursor: pointer;
+}
+
+/* Fix para el día seleccionado */
+.bootstrap-datetimepicker-widget .datepicker-days td.day.active,
+.bootstrap-datetimepicker-widget .datepicker-days td.day.active:hover {
+    background-color: #28a745 !important;
+    color: #fff !important;
+}
+
+/* Fix para el día de hoy */
+.bootstrap-datetimepicker-widget .datepicker-days td.day.today {
+    background-color: #1a1d40 !important;
+    color: #fff !important;
+}
+
+.bootstrap-datetimepicker-widget .datepicker-days td.day.today:hover {
+    background-color: #1a1d40 !important;
+    color: #fff !important;
+}
+
+/* Fix para días deshabilitados */
+.bootstrap-datetimepicker-widget .datepicker-days td.day.disabled,
+.bootstrap-datetimepicker-widget .datepicker-days td.day.disabled:hover {
+    background-color: #1a1d40 !important;
+    color: #6c757d !important;
+    cursor: not-allowed;
+}
+
+/* Fix para el header del calendario */
+.bootstrap-datetimepicker-widget .datepicker-days th,
+.bootstrap-datetimepicker-widget .datepicker-months th,
+.bootstrap-datetimepicker-widget .datepicker-years th {
+    background-color: #313563 !important;
+    color: #fff !important;
+    border-bottom: 1px solid #1a1d40 !important;
+}
+
+/* Fix para navegación (flechas) */
+.bootstrap-datetimepicker-widget .datepicker-days th.prev,
+.bootstrap-datetimepicker-widget .datepicker-days th.next {
+    color: #1a1d40 !important;
+    cursor: pointer;
+}
+
+.bootstrap-datetimepicker-widget .datepicker-days th.prev:hover,
+.bootstrap-datetimepicker-widget .datepicker-days th.next:hover {
+    background-color: #313563 !important;
+    color: #1a1d40 !important;
+}
+
+/* Fix para el selector de mes/año */
+.bootstrap-datetimepicker-widget .datepicker-months td.month,
+.bootstrap-datetimepicker-widget .datepicker-years td.year {
+    color: #495057 !important;
+}
+
+.bootstrap-datetimepicker-widget .datepicker-months td.month:hover,
+.bootstrap-datetimepicker-widget .datepicker-years td.year:hover {
+    background-color: #1a1d40 !important;
+    color: #fff !important;
+}
+
+.bootstrap-datetimepicker-widget .datepicker-months td.month.active,
+.bootstrap-datetimepicker-widget .datepicker-years td.year.active {
+    background-color: #28a745 !important;
+    color: #fff !important;
+}
+
+/* Fix para timepicker (si usas datetime) */
+.bootstrap-datetimepicker-widget .timepicker td {
+    color: #495057 !important;
+}
+
+.bootstrap-datetimepicker-widget .timepicker td:hover {
+    background-color: #1a1d40 !important;
+    color: #fff !important;
+}
+
+/* Fix para botones del footer */
+.bootstrap-datetimepicker-widget .picker-switch {
+    background-color: #313563 !important;
+    color: #495057 !important;
+    border: 1px solid #1a1d40 !important;
+}
+
+.bootstrap-datetimepicker-widget .picker-switch:hover {
+    background-color: #1a1d40 !important;
+    color: #495057 !important;
+}
+
+/* VARIANTE PARA TEMA OSCURO (si Light Blue tiene dark mode) */
+.theme-dark .bootstrap-datetimepicker-widget.dropdown-menu {
+    background-color: #343a40 !important;
+    border: 1px solid #495057 !important;
+}
+
+.theme-dark .bootstrap-datetimepicker-widget .datepicker-days td.day {
+    color: #fff !important;
+}
+
+.theme-dark .bootstrap-datetimepicker-widget .datepicker-days td.day:hover {
+    background-color: #1a1d40 !important;
+    color: #fff !important;
+}
+
+.theme-dark .bootstrap-datetimepicker-widget .datepicker-days th {
+    background-color: #495057 !important;
+    color: #fff !important;
+    border-bottom: 1px solid #6c757d !important;
+}
+
+/* PERSONALIZACIÓN PARA LIGHT BLUE ESPECÍFICAMENTE */
+/* Si Light Blue usa colores específicos, ajústalos aquí */
+
+/* Color primario de Light Blue (ajusta según tu tema) */
+.bootstrap-datetimepicker-widget .datepicker-days td.day:hover {
+    background-color: var(--primary-color, #1a1d40) !important;
+    color: #fff !important;
+}
+
+.bootstrap-datetimepicker-widget .datepicker-days td.day.active {
+    background-color: var(--success-color, #1a1d40) !important;
+    color: #fff !important;
+}

@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace App\View\Components\layout\menu\sidebarAlerts;
 
-use App\DTOs\layout\menu\sidebarAlerts\AlertDTO;
-use Closure;
+use App\DTOs\dashboard\layout\menu\sidebarAlerts\AlertDTO;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
@@ -17,7 +16,7 @@ final class Alert extends Component
     /**
      * Get the view / contents that represent the component.
      */
-    public function render(): View|Closure|string
+    public function render(): View
     {
         return view('components.layout.menu.sidebar-alerts.alert', [
             'dto' => $this->dto,

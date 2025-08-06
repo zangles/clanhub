@@ -18,40 +18,28 @@ use Illuminate\Support\Str;
 final class GuildService
 {
     public function __construct(
-        private GuildRepositoryInterface $guildRepository
+        private readonly GuildRepositoryInterface $guildRepository
     ) {}
 
+    /**
+     * @param  array{name: string, slug: string, description?: string, is_public: bool}  $data
+     */
     public function createGuild(array $data): Guild
     {
         // Validar que el usuario no tenga ya un gremio como owner
-        $existingGuild = $this->guildRepository->getUserGuilds(Auth::id())
-            ->where('owner_id', Auth::id())
-            ->first();
-
-        if ($existingGuild) {
-            throw new Exception('Ya tienes un gremio creado. Solo puedes ser propietario de un gremio.');
-        }
+        // futura opcion de pago, limite de guilds
+        //        $existingGuild = $this->guildRepository->getUserGuilds(Auth::id())
+        //            ->where('owner_id', Auth::id())
+        //            ->first();
+        //
+        //        if ($existingGuild) {
+        //            throw new Exception('Ya tienes un gremio creado. Solo puedes ser propietario de un gremio.');
+        //        }
 
         // Procesar archivos si existen
-        if (isset($data['logo']) && $data['logo'] instanceof UploadedFile) {
-            $data['logo'] = $this->uploadImage($data['logo'], 'logos');
-        }
-
-        if (isset($data['banner']) && $data['banner'] instanceof UploadedFile) {
-            $data['banner'] = $this->uploadImage($data['banner'], 'banners');
-        }
 
         // Generar slug único
-        $data['slug'] = $this->generateUniqueSlug($data['name']);
-        $data['owner_id'] = Auth::id();
-
-        // Configuraciones por defecto
-        $data['settings'] = array_merge([
-            'auto_accept_members' => false,
-            'require_application' => true,
-            'min_level_required' => 1,
-            'allow_member_invites' => false,
-        ], $data['settings'] ?? []);
+        $data['slug'] = $this->generateUniqueSlug($data['slug']);
 
         $guild = $this->guildRepository->create($data);
 
@@ -172,9 +160,8 @@ final class GuildService
         return $file->storeAs("guilds/{$folder}", $filename, 'public');
     }
 
-    private function generateUniqueSlug(string $name, ?int $excludeId = null): string
+    private function generateUniqueSlug(string $baseSlug, ?int $excludeId = null): string
     {
-        $baseSlug = Str::slug($name);
         $slug = $baseSlug;
         $counter = 1;
 

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Http\Controllers;
 
 use App\Actions\Auth\RegisterUser;
+use App\DTOs\dashboard\Elements\CardDTO;
 use App\DTOs\RegisterUserData;
 use App\Http\Requests\Auth\RegisterRequest;
 use Illuminate\Http\RedirectResponse;
@@ -17,7 +18,16 @@ final class AuthController
 {
     public function showRegisterForm(): View
     {
-        return view('auth.register');
+        $cardDto = CardDTO::make(
+            title: [
+                'title' => 'Crear Cuenta',
+                'class' => 'text-white',
+            ]
+        );
+
+        return view('auth.register', [
+            'dto' => $cardDto,
+        ]);
     }
 
     public function register(RegisterRequest $request, RegisterUser $registerUserAction): RedirectResponse

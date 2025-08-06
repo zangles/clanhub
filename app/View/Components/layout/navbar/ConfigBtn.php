@@ -4,9 +4,8 @@ declare(strict_types=1);
 
 namespace App\View\Components\layout\navbar;
 
-use App\DTOs\layout\navbar\ConfigItemDTO;
+use App\DTOs\dashboard\layout\navbar\ConfigItemDTO;
 use App\Enums\ConfigItemType;
-use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
@@ -20,7 +19,7 @@ final class ConfigBtn extends Component
     /**
      * Get the view / contents that represent the component.
      */
-    public function render(): View|Closure|string
+    public function render(): View
     {
         /** @var ConfigItemDTO[] $dropdownItems<int, ConfigItemDTO> */
         $dropdownItems = [
@@ -37,7 +36,7 @@ final class ConfigBtn extends Component
                 type: ConfigItemType::Element,
                 title: 'Logout',
                 iconClass: 'la la-sign-out',
-                url: '#',
+                url: route('logout'),
             ),
         ];
 

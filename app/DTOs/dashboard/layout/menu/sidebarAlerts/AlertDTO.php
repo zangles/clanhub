@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\DTOs\layout\menu\sidebarAlerts;
+namespace App\DTOs\dashboard\layout\menu\sidebarAlerts;
 
 /**
  * @property-read string $title

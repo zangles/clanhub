@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace App\View\Components\layout;
+namespace App\View\Components\Elements\FormInput;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-final class Header extends Component
+final class Switchery extends Component
 {
     /**
      * Create a new component instance.
@@ -22,6 +22,6 @@ final class Header extends Component
      */
     public function render(): View
     {
-        return view('components.layout.header');
+        return view('components.elements.form-input.switchery');
     }
 }

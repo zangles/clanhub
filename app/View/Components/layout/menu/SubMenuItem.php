@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace App\View\Components\layout\menu;
 
-use App\DTOs\layout\menu\SubMenuItemDTO;
-use Closure;
+use App\DTOs\dashboard\layout\menu\SubMenuItemDTO;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
@@ -21,7 +20,7 @@ final class SubMenuItem extends Component
     /**
      * Get the view / contents that represent the component.
      */
-    public function render(): View|Closure|string
+    public function render(): View
     {
         return view('components.layout.menu.sub-menu-item', [
             'dto' => $this->dto,

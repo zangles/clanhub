@@ -9,6 +9,8 @@ export default defineConfig({
             input: [
                 'resources/css/app.css',
                 'resources/css/application.min.css',
+                'resources/css/datepicker.css',
+                'resources/css/myBootstrap.css',
                 'resources/css/line-awesome/line-awesome.css',
                 ...glob.sync('resources/css/pages/*.css'),
                 ...glob.sync('resources/css/pages/*.js'),

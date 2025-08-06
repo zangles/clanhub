@@ -17,9 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('name')->unique()->index();
             $table->string('slug')->unique()->index();
-            $table->string('description');
+            $table->string('description')->nullable();
             $table->boolean('is_public');
-            $table->foreignId('owner_id')->constrained('users', 'id');
             $table->timestamps();
         });
     }

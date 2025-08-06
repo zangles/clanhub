@@ -33,15 +33,11 @@ final class Guild extends Model
         'name',
         'slug',
         'description',
-        'logo',
         'is_public',
-        'is_recruiting',
-        'owner_id',
     ];
 
     protected $casts = [
         'is_public' => 'boolean',
-        'is_recruiting' => 'boolean',
     ];
 
     protected $dates = [
@@ -50,10 +46,6 @@ final class Guild extends Model
     ];
 
     // Relaciones
-    public function owner(): BelongsTo
-    {
-        return $this->belongsTo(config('auth.providers.users.model'), 'owner_id');
-    }
 
     public function members(): HasMany
     {
@@ -66,17 +58,7 @@ final class Guild extends Model
         return $query->where('is_public', true);
     }
 
-    public function scopeRecruiting($query)
-    {
-        return $query->where('is_recruiting', true);
-    }
-
     // Accessors & Mutators
-    public function getLogoUrlAttribute()
-    {
-        return $this->logo ? asset('storage/'.$this->logo) : asset('images/default-guild-logo.png');
-    }
-
     public function setNameAttribute($value)
     {
         $this->attributes['name'] = $value;
@@ -101,7 +83,8 @@ final class Guild extends Model
 
     public function isOwner($userId): bool
     {
-        return $this->owner_id === $userId;
+//        return $this->owner_id === $userId;
+        return true;
     }
 
     public function activeSubscription(): HasOne

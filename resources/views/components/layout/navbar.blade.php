@@ -18,7 +18,7 @@
                 <li class="nav-item divider d-none d-xl-block"></li>
                 <x-layout.navbar.config-btn />
                 <li class="nav-item d-none d-xl-block">
-                    <a target="_self" href="../extra/login.html" class="nav-link">
+                    <a target="_self" href="{{route('logout')}}" class="nav-link">
                         <i class="la la-power-off px-2"></i>
                     </a>
                 </li>

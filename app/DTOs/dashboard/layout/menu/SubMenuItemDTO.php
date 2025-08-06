@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\DTOs\layout\menu;
+namespace App\DTOs\dashboard\layout\menu;
 
 /**
  * Data Transfer Object para items del submenú

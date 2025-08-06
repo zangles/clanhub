@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\DTOs\layout\navbar;
+namespace App\DTOs\dashboard\layout\navbar;
 
 use App\Enums\ConfigItemType;
 
@@ -31,6 +31,7 @@ final class ConfigItemDTO
             type: $type,
             title: $title,
             iconClass: $iconClass,
+            url: $url,
         );
     }
 

@@ -2,19 +2,20 @@
 
 declare(strict_types=1);
 
-namespace App\View\Components\layout\menu;
+namespace App\View\Components\Elements;
 
-use App\DTOs\dashboard\layout\menu\MenuItemDTO;
+use App\DTOs\dashboard\Elements\CardDTO;
+use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-final class MenuItem extends Component
+final class Card extends Component
 {
     /**
      * Create a new component instance.
      */
     public function __construct(
-        public readonly MenuItemDTO $dto,
+        private readonly ?CardDTO $dto = null,
     ) {}
 
     /**
@@ -22,7 +23,7 @@ final class MenuItem extends Component
      */
     public function render(): View
     {
-        return view('components.layout.menu.menu-item', [
+        return view('components.elements.card', [
             'dto' => $this->dto,
         ]);
     }

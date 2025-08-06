@@ -17,10 +17,7 @@ Route::middleware('guest')->group(function () {
 
     Route::get('/login', [AuthController::class, 'showLoginForm'])->name('guest.loginForm');
     Route::post('/login', [AuthController::class, 'login'])->name('login');
-});
 
-Route::prefix('guild')->group(function () {
-    Route::get('/create', [GuildController::class, 'create'])->name('guild.create');
 });
 
 // Rutas protegidas
@@ -29,5 +26,10 @@ Route::middleware('auth')->group(function () {
         return view('dashboard');
     })->name('dashboard');
 
-    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+    Route::prefix('guild')->group(function () {
+        Route::get('/create', [GuildController::class, 'create'])->name('guild.create');
+        Route::post('/create', [GuildController::class, 'store'])->name('guild.store');
+    });
+
+    Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 });

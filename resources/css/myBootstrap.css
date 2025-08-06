@@ -1,0 +1,44 @@
+:root {
+    --primary: #4a5cb8;
+    --secondary: #6c7293;
+    --success: #4a7c59;
+    --info: #4a6b7c;
+    --warning: #8b6914;
+    --danger: #7a4545;
+    --light: #7a7f9a;
+    --dark: #2d3155;
+}
+
+/* Sobrescribir clases de Bootstrap */
+.btn-primary { background-color: #4a5cb8; border-color: #4a5cb8; }
+.btn-primary:hover { background-color: #5a6cc8; border-color: #5a6cc8; }
+
+.btn-secondary { background-color: #6c7293; border-color: #6c7293; }
+.btn-success { background-color: #4a7c59; border-color: #4a7c59; }
+.btn-success:hover { background-color: #5a8c69; border-color: #5a8c69; }
+
+.btn-info { background-color: #4a6b7c; border-color: #4a6b7c; }
+.btn-info:hover { background-color: #5a7b8c; border-color: #5a7b8c; }
+
+.btn-warning { background-color: #8b6914; border-color: #8b6914; }
+.btn-warning:hover { background-color: #9b7924; border-color: #9b7924; }
+
+.btn-danger { background-color: #7a4545; border-color: #7a4545; }
+.btn-danger:hover { background-color: #8a5555; border-color: #8a5555; }
+
+.btn-light { background-color: #7a7f9a; border-color: #7a7f9a; color: #2d3155; }
+.btn-dark { background-color: #2d3155; border-color: #2d3155; }
+
+/* También para alerts, badges, etc. */
+.alert-primary { background-color: #4a5cb8; border-color: #4a5cb8; color: white; }
+.alert-success { background-color: #4a7c59; border-color: #4a7c59; color: white; }
+.alert-info { background-color: #4a6b7c; border-color: #4a6b7c; color: white; }
+.alert-warning { background-color: #8b6914; border-color: #8b6914; color: white; }
+.alert-danger { background-color: #7a4545; border-color: #7a4545; color: white; }
+
+.bg-primary { background-color: #4a5cb8 !important; }
+.bg-secondary { background-color: #6c7293 !important; }
+.bg-success { background-color: #4a7c59 !important; }
+.bg-info { background-color: #4a6b7c !important; }
+.bg-warning { background-color: #8b6914 !important; }
+.bg-danger { background-color: #7a4545 !important; }

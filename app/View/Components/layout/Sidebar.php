@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace App\View\Components\layout;
 
-use App\DTOs\layout\menu\MenuItemDTO;
-use App\DTOs\layout\menu\sidebarAlerts\AlertDTO;
-use App\DTOs\layout\menu\SubMenuItemDTO;
-use Closure;
+use App\Domains\Guild\Models\Guild;
+use App\DTOs\dashboard\layout\menu\MenuItemDTO;
+use App\DTOs\dashboard\layout\menu\sidebarAlerts\AlertDTO;
+use App\DTOs\dashboard\layout\menu\SubMenuItemDTO;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
@@ -21,7 +21,7 @@ final class Sidebar extends Component
     /**
      * Get the view / contents that represent the component.
      */
-    public function render(): View|Closure|string
+    public function render(): View
     {
         /** @var MenuItemDTO[] $menu<int, MenuItemDTO> */
         $menu = [
@@ -41,6 +41,20 @@ final class Sidebar extends Component
                 ]
             ),
         ];
+        $guilds = Guild::all();
+        foreach ($guilds as $guild) {
+            $menu[] = MenuItemDTO::make(
+                title: $guild->name,
+                url: '#',
+                iconClass: 'fi flaticon-flag-3',
+                submenu: [
+                    SubMenuItemDTO::make('Miembros', '#'),
+                    SubMenuItemDTO::make('Eventos', '#'),
+                    SubMenuItemDTO::make('Reglas', '#'),
+                ]
+            );
+        }
+
 
         /** @var AlertDTO[] $sideBarAlerts<int, AlertDTO> */
         $sideBarAlerts = [

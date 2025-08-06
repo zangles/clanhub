@@ -26,35 +26,10 @@ final class CreateGuildRequest extends FormRequest
                 'max:50',
                 'unique:guilds,name',
             ],
-            'description' => [
-                'required',
-                'string',
-                'min:10',
-                'max:1000',
-            ],
-            'max_members' => [
-                'required',
-                'integer',
-                'min:5',
-                'max:500',
-            ],
+            'slug' => [],
+            'description' => [],
             'is_public' => [
                 'boolean',
-            ],
-            'is_recruiting' => [
-                'boolean',
-            ],
-            'logo' => [
-                'nullable',
-                'image',
-                'mimes:jpeg,png,jpg,gif,webp',
-                'max:2048', // 2MB
-            ],
-            'banner' => [
-                'nullable',
-                'image',
-                'mimes:jpeg,png,jpg,gif,webp',
-                'max:5120', // 5MB
             ],
         ];
     }
