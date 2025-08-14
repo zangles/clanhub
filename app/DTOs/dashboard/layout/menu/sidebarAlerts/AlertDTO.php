@@ -24,7 +24,7 @@ final class AlertDTO
         string $footerText = '',
         float $percentage = 0,
         string $progressBarClass = ''
-    ) {
+    ): self {
         return new self(
             title: $title,
             footerText: $footerText,
@@ -33,6 +33,14 @@ final class AlertDTO
         );
     }
 
+    /**
+     * @return array{
+     *     title: string,
+     *     footerText: string,
+     *     percentage: float,
+     *     progressBarClass: string
+     * }
+     */
     public function toArray(): array
     {
         return [

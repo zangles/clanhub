@@ -55,7 +55,6 @@ final class Sidebar extends Component
             );
         }
 
-
         /** @var AlertDTO[] $sideBarAlerts<int, AlertDTO> */
         $sideBarAlerts = [
             AlertDTO::make(

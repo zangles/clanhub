@@ -26,11 +26,46 @@ final class CreateGuildRequest extends FormRequest
                 'max:50',
                 'unique:guilds,name',
             ],
-            'slug' => [],
-            'description' => [],
+            'slug' => [
+                'required',
+                'string',
+            ],
+            'description' => [
+                'nullable',
+                'string',
+            ],
             'is_public' => [
+                'required',
                 'boolean',
             ],
+        ];
+    }
+
+    /**
+     * @return array{name: string, slug: string, description: string|null, is_public: bool}
+     */
+    public function validated(mixed $key = null, mixed $default = null): array
+    {
+        /** @var array<string, mixed> $data */
+        $data = parent::validated($key, $default);
+
+        /** @var string $name */
+        $name = $data['name'];
+
+        /** @var string $slug */
+        $slug = $data['slug'];
+
+        /** @var string|null $description */
+        $description = $data['description'] ?? null;
+
+        /** @var bool $isPublic */
+        $isPublic = $data['is_public'];
+
+        return [
+            'name' => $name,
+            'slug' => $slug,
+            'description' => $description,
+            'is_public' => $isPublic,
         ];
     }
 
@@ -44,18 +79,11 @@ final class CreateGuildRequest extends FormRequest
             'name.min' => 'El nombre debe tener al menos 3 caracteres.',
             'name.max' => 'El nombre no puede tener más de 50 caracteres.',
             'name.unique' => 'Ya existe un gremio con este nombre.',
+            'slug.required' => 'El slug es obligatorio.',
             'description.required' => 'La descripción es obligatoria.',
             'description.min' => 'La descripción debe tener al menos 10 caracteres.',
             'description.max' => 'La descripción no puede tener más de 1000 caracteres.',
-            'max_members.required' => 'El número máximo de miembros es obligatorio.',
-            'max_members.min' => 'El gremio debe permitir al menos 5 miembros.',
-            'max_members.max' => 'El gremio no puede tener más de 500 miembros.',
-            'logo.image' => 'El logo debe ser una imagen.',
-            'logo.mimes' => 'El logo debe ser un archivo jpeg, png, jpg, gif o webp.',
-            'logo.max' => 'El logo no puede ser mayor a 2MB.',
-            'banner.image' => 'El banner debe ser una imagen.',
-            'banner.mimes' => 'El banner debe ser un archivo jpeg, png, jpg, gif o webp.',
-            'banner.max' => 'El banner no puede ser mayor a 5MB.',
+            'is_public.boolean' => 'El campo público debe ser verdadero o falso.',
         ];
     }
 

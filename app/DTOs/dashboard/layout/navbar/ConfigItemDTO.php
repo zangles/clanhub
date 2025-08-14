@@ -35,6 +35,14 @@ final class ConfigItemDTO
         );
     }
 
+    /**
+     * @return array{
+     *     type: ConfigItemType,
+     *     title: string|null,
+     *     iconClass: string|null,
+     *     url: string|null
+     * }
+     */
     public function toArray(): array
     {
         return [

@@ -19,6 +19,10 @@ final class CardDTO
         public readonly ?array $buttons
     ) {}
 
+    /**
+     * @param  array{title: string, class: string}|null  $title
+     * @param  array<int, array{title: string, url: string, class: string}>|null  $buttons
+     */
     public static function make(
         ?array $title = null,
         ?array $buttons = null
@@ -29,6 +33,12 @@ final class CardDTO
         );
     }
 
+    /**
+     * @return array{
+     *     title: array{title: string, class: string}|null,
+     *     buttons: array<int, array{title: string, url: string, class: string}>|null
+     * }
+     */
     public function toArray(): array
     {
         return [

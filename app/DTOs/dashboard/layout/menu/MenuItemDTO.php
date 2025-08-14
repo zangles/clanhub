@@ -43,6 +43,9 @@ final readonly class MenuItemDTO
         }
     }
 
+    /**
+     * @param  array<SubMenuItemDTO>  $submenu
+     */
     public static function make(
         string $title,
         string $url,
@@ -67,9 +70,19 @@ final readonly class MenuItemDTO
         }
 
         // Un item padre está activo si algún hijo está activo
-        return collect($this->submenu)->some(fn (SubMenuItemDTO $item) => $item->active);
+        return collect($this->submenu)->some(fn (SubMenuItemDTO $item) => $item->active === true);
     }
 
+    /**
+     * @return array{
+     *     title: string,
+     *     url: string,
+     *     iconClass: string,
+     *     active: bool|null,
+     *     hasSubmenu: bool,
+     *     submenu: array<array{title: string, url: string, active: bool|null}>
+     * }
+     */
     public function toArray(): array
     {
         return [
@@ -82,7 +95,7 @@ final readonly class MenuItemDTO
         ];
     }
 
-    private static function isCurrentUrl($url): bool
+    private static function isCurrentUrl(string $url): bool
     {
         if ($url === '#' || empty($url)) {
             return false;

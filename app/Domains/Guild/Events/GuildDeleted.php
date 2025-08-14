@@ -18,7 +18,7 @@ final class GuildDeleted
         public Guild $guild
     ) {}
 
-    public function broadcastOn()
+    public function broadcastOn(): PrivateChannel
     {
         return new PrivateChannel('guild-deleted');
     }

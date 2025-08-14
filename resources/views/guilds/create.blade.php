@@ -4,17 +4,8 @@
     <div class="row">
 
         <div class="col-6 offset-md-3 ">
-            <x-elements.card :dto="$cardDto">
+            <x-elements.section :title="'Crear Gremio'">
                 <x-slot name="content">
-                    @if ($errors->any())
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
                     <form action="{{route('guild.store')}}" method="POST">
                         @csrf
                         <x-elements.form-group :label="'Nombre del Gremio'">
@@ -73,7 +64,7 @@
                         </div>
                     </form>
                 </x-slot>
-            </x-elements.card>
+            </x-elements.section>
         </div>
 
     </div>

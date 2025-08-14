@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\View\Components\Elements;
 
 use App\DTOs\dashboard\Elements\CardDTO;
-use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 

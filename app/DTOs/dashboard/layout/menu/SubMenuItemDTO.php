@@ -31,6 +31,13 @@ final readonly class SubMenuItemDTO
         );
     }
 
+    /**
+     * @return array{
+     *     title: string,
+     *     url: string,
+     *     active: bool|null
+     * }
+     */
     public function toArray(): array
     {
         return [
@@ -40,7 +47,7 @@ final readonly class SubMenuItemDTO
         ];
     }
 
-    private static function isCurrentUrl($url): bool
+    private static function isCurrentUrl(string $url): bool
     {
         if ($url === '#' || empty($url)) {
             return false;
